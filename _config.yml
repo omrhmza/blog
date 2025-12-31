@@ -22,3 +22,11 @@ defaults:
       layout: single
       author_profile: true
       share: true
+      
+  locale: "ar-SA"
+rtl: true
+words_per_minute: 150
+# إعدادات الروابط للعربية
+slugify:
+  mode: "pretty"
+
