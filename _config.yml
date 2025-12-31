@@ -1,44 +1,22 @@
-title: "مدونة عمر"
-baseurl: ""
-url: "https://omarhmza.github.io"
+# إعدادات الموقع الأساسية
 remote_theme: "mmistakes/minimal-mistakes"
-
-plugins:
-  - jekyll-include-cache
-  - jekyll-remote-theme
-
-# إعدادات اللغة والاتجاه
+minimal_mistakes_skin: "dark" # أو "contrast" لراحة عيون القراء
 locale: "ar-SA"
-rtl: true
-words_per_minute: 150
+title: "مدونة عمر" # يمكنك تغيير الاسم هنا
+subtitle: "واحة الشعر والأدب"
 
-# تفعيل القائمة العلوية
-navigation: main 
+# إعدادات الكاتب (التي تظهر في السايدبار)
+author:
+  name: "عمر"
+  bio: "مهتم بالشعر والأدب العربي"
+  location: "المملكة العربية السعودية"
+  avatar: "/assets/images/bio-photo.jpg" # ضع صورتك هنا لاحقاً
+  links:
+    - label: "تويتر"
+      icon: "fab fa-fw fa-twitter-square"
+      url: "https://twitter.com/omrhmza"
 
-# إعدادات الروابط للعربية
-slugify:
-  mode: "pretty"
-
-# نظام الأقسام والوسوم
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
-
-# الإعدادات الافتراضية للمقالات
-defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
-      
-  # إعدادات تعليقات Giscus
+# إعدادات تعليقات Giscus (جاهزة كما طلبت)
 comments:
   provider: "giscus"
   giscus:
@@ -53,11 +31,33 @@ comments:
     theme: "dark"
     lang: "ar"
 
-# تفعيل التعليقات تلقائياً في المقالات
+# الإعدادات الافتراضية (لإظهار التعليقات والوسوم والتاريخ)
 defaults:
   - scope:
       path: ""
       type: posts
     values:
-      comments: true
+      layout: single
+      author_profile: true # لإظهار صورتك وبياناتك بجانب المقال
+      comments: true       # تفعيل التعليقات
+      share: true          # أزرار المشاركة للشباب
+      related: true        # مقالات ذات صلة في الأسفل
+      show_date: true      # إظهار تاريخ النشر
+      read_time: true      # وقت القراءة
 
+# إعدادات الرابط (تأكد أن هذا هو رابط موقعك)
+url: "https://omrhmza.github.io"
+baseurl: ""
+
+# إعدادات إضافية
+markdown: kramdown
+highlighter: rouge
+words_per_minute: 200
+
+# تصنيفات ووسوم
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
