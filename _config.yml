@@ -7,6 +7,8 @@ locale: "ar-SA"
 title: "مدونة عمر"
 subtitle: "واحة الشعر والأدب"
 
+data:
+  ui_text: "ui-text"
 # الإضافات (حل مشكلة الايرور)
 plugins:
   - jekyll-paginate
