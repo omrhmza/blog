@@ -1,15 +1,19 @@
 # إعدادات الموقع
 url: "https://omrhmza.github.io"
-baseurl: "" # اتركه فارغاً هكذا
+baseurl: "" 
 remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "dark"
-locale: "ar-SA"
+locale: "ar-SA" # تفعيل اللغة العربية
 title: "عمر حمزة"
 subtitle: "الشاعر الجديد"
 
+# إعدادات البحث واللغة
+search: true
+search_full_content: true
 data:
   ui_text: "ui-text"
-# الإضافات (حل مشكلة الايرور)
+
+# الإضافات (تأكد من وجود jekyll-paginate للترقيم)
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
@@ -17,9 +21,14 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
 
+# إعدادات الترقيم التسلسلي (Pagination)
+paginate: 10
+paginate_path: "/page:num/"
+
 # إعدادات الكاتب
 author:
   name: " عمر حمزة"
+  avatar: "/assets/images/morgan-custom.jpg" # تأكد من مسار صورتك
   bio: "أنا شاب سوري أدرس اللغة الإنكليزية...مهتم بالأدب بشكل عام...و الشعر العربي العمودي بشكل خاص..."
   location: "الجمهورية العربية السورية"
   links:
@@ -31,8 +40,10 @@ author:
 comments:
   provider: "custom"
 
+# إعدادات مسار التنقل (الخبز)
+breadcrumbs: true
 
-# الإعدادات الافتراضية
+# الإعدادات الافتراضية (تمت إضافة الخبز، التاجات، وقت القراءة)
 defaults:
   - scope:
       path: ""
@@ -44,3 +55,12 @@ defaults:
       share: true
       related: true
       show_date: true
+      read_time: true      # ميزة وقت القراءة
+      words_per_minute: 150
+      breadcrumbs: true    # تفعيل الخبز داخل المقال
+      taxonomy: true       # عرض الأوسمة والتصنيفات أسفل المقال
+      toc: false           # اجعله true إذا أردت جدول محتويات
+      entries_layout: grid # عرض المقالات المرتبطة بشكل شبكة
+
+# إعدادات الروابط الدائمة (اختياري لتحسين الأرشفة)
+permalink: /:categories/:title/
