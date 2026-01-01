@@ -5,15 +5,12 @@ remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "dark"
 title: "عمر حمزة"
 subtitle: "الشاعر الجديد"
-
+locale: "ar"
 # إعدادات البحث واللغة
 search: true
 search_full_content: true
 
 # ربط ملف اللغة (تأكد أن اسم الملف داخل مجلد _data هو ui-text.yml)
-data:
-  ui_text: "ui-text"
-
 # الإضافات
 plugins:
   - jekyll-paginate
