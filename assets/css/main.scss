@@ -1,54 +1,55 @@
 ---
-# جيكل يحتاج هذه الأسطر لمعالجة ملف الـ Sass
+# Front matter magic
 ---
 
+// استيراد القالب الأساسي أولاً
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // لجلب ألوان السكن المختار (مثل dark)
 @import "minimal-mistakes"; 
 
-// 1. استيراد خط تجوال
+/* 1. استدعاء خط تجوال */
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
 
-// متغير اللون الأحمر
+/* متغيرات مخصصة */
 $brand-red: #cc0000;
 
-// 2. إعدادات الـ RTL والخط
-html {
-  direction: rtl;
-}
-
+/* 2. الإعدادات العامة والخط */
 body {
   font-family: "Tajawal", "Segoe UI", Tahoma, sans-serif !important;
 }
 
-// 3. تعديل الرأس (إزالة الخلفية السيئة)
+/* 3. تعديل الرأس (Masthead) */
 .masthead {
   background-color: transparent !important;
   box-shadow: none !important;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(255,255,255,0.1) !important;
 }
 
-// 4. مورغان لبطاقة التعريف (إزاحة الصورة للأعلى)
+/* 4. صورة الكاتب (Author Avatar) */
 .author__avatar {
   margin-top: -60px !important;
-  border: 4px solid #fff;
+  border: 4px solid #1a1a1a; /* لون غامق ليتناسب مع الثيم */
   border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-// 5. الأوسمة (خلفية حمراء وكتابة بيضاء)
+/* 5. الأوسمة (Tags) باللون الأحمر */
 .page__taxonomy-item {
   background-color: $brand-red !important;
   color: #fff !important;
   border: none !important;
   text-decoration: none !important;
-  padding: 0.2em 0.6em;
+  padding: 5px 10px;
   border-radius: 4px;
+  margin: 2px;
+  display: inline-block;
 
   &:hover {
-    background-color: darken($brand-red, 10%) !important;
+    background-color: darken($brand-red, 15%) !important;
+    color: #fff !important;
   }
 }
 
-// 6. زر فولو (أحمر ونصه أبيض)
+/* 6. زر فولو (Follow Button) */
 .btn--light-outline {
   background-color: $brand-red !important;
   color: #fff !important;
@@ -56,44 +57,31 @@ body {
   font-weight: bold !important;
 
   &:hover {
-    background-color: darken($brand-red, 10%) !important;
+    background-color: darken($brand-red, 15%) !important;
     color: #fff !important;
   }
 }
 
-// 7. الفواصل (كما في الفانيلا) والفوتر
+/* 7. الفواصل والفوتر */
 hr {
-  border: 0;
-  border-top: 1px solid #eee !important;
-  margin: 2em 0;
+  border-top: 1px solid rgba(255,255,255,0.1) !important;
 }
 
 .page__footer {
-  border-top: 1px solid #eee !important;
-  margin-top: 3em;
-  color: #666;
+  border-top: 1px solid rgba(255,255,255,0.1) !important;
+  color: #888;
 }
 
-// 8. تعديل تموضع العناصر الأساسية للقالب ليناسب الـ RTL
-.sidebar {
-  float: right !important;
-  margin-right: 0 !important;
-  margin-left: 2em !important;
+/* 8. إصلاحات RTL (استخدم الـ Direction فقط واترك القالب يوزع الفلوت) */
+html {
+  direction: rtl;
 }
 
 .page {
-  float: left !important;
-  padding-right: 0 !important;
-  padding-left: 2em !important;
   text-align: right;
 }
 
-/* قلب اتجاه عناصر التنقل (Breadcrumbs) */
+/* قلب اتجاهات التنقل */
 .breadcrumbs {
   text-align: right !important;
-}
-
-/* إصلاح اتجاه أسهم التنقل في الأسفل */
-.pagination--pager {
-  float: left !important;
 }
