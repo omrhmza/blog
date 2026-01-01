@@ -58,6 +58,13 @@ defaults:
       taxonomy: true   
       toc: false           
       entries_layout: grid 
+      
+  category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
 
 # إعدادات الروابط الدائمة
 permalink: /:categories/:title/
