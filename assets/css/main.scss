@@ -39,11 +39,7 @@ body {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-.masthead__inner, .masthead__menu, .masthead__menu-item {
-  background: transparent !important; // إزالة أي خلفية بيضاء أو رمادية داخلية
-  border: none !important;
-  box-shadow: none !important;
-}
+
 
 /* --- إصلاح زر الفولو (إجبار اللون الأحمر) --- */
 // استهدفنا الكلاسين معاً لضمان عدم هروب اللون الأبيض
@@ -81,7 +77,7 @@ hr {
 /* --- إزاحة صورة الكاتب (مورغان) --- */
 .author__avatar {
   margin-top: -85px !important;
-  border: 3px solid $primary-color !important;
+  
   position: relative;
   z-index: 20;
 }
@@ -108,3 +104,5 @@ hr {
 .page__title, .archive__subtitle {
   color: $primary-color !important;
 }
+.masthead__inner-wrap {
+  background-color: transparent !important; 
