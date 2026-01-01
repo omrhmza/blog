@@ -4,8 +4,8 @@ baseurl: "" # اتركه فارغاً هكذا
 remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "dark"
 locale: "ar-SA"
-title: "مدونة عمر"
-subtitle: "واحة الشعر والأدب"
+title: "عمر حمزة"
+subtitle: "الشاعر الجديد"
 
 data:
   ui_text: "ui-text"
@@ -19,9 +19,9 @@ plugins:
 
 # إعدادات الكاتب
 author:
-  name: "عمر"
-  bio: "مهتم بالشعر والأدب العربي"
-  location: "المملكة العربية السعودية"
+  name: " عمر حمزة"
+  bio: "أنا شاب سوري أدرس اللغة الإنكليزية...مهتم بالأدب بشكل عام...و الشعر العربي العمودي بشكل خاص..."
+  location: "الجمهورية العربية السورية"
   links:
     - label: "تويتر"
       icon: "fab fa-fw fa-twitter-square"
