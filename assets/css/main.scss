@@ -5,14 +5,14 @@
 // 1. استيراد الخط
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
 
-// 2. المتغيرات الأساسية للثيم (ألوانك الخاصة)
+// 2. المتغيرات الأساسية للثيم
 $background-color: #1a1a2e;
 $text-color: #e6f7ff;
 $primary-color: #BB3455;
 $border-color: rgba(187, 52, 85, 0.3);
 $sans-serif: "Tajawal", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", sans-serif;
 
-// 3. تطبيق الخلفية المتحركة التي صممتها
+// 3. الخلفية المتحركة
 @keyframes pulseWaves {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -24,6 +24,7 @@ $sans-serif: "Tajawal", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI",
 @import "minimal-mistakes"; 
 
 // 5. تخصيص المظهر (Overriding)
+
 body {
   direction: rtl;
   text-align: right;
@@ -35,35 +36,38 @@ body {
   text-shadow: 0 0px 10px rgba(173, 173, 173, 0.4);
 }
 
-// --- تعديل الهيدر (الماستهيد) ---
+// --- تخصيص محتوى الصفحة (الجسم فقط بدون الهيدر) ---
+#main {
+  padding-top: 30px !important; // المسافة التي طلبتها بين الهيدر والمحتوى
+  padding-bottom: 30px !important; // مسافة قبل الفوتر أيضاً
+}
+
+// --- تخصيص الهيدر (Masthead) ---
 .masthead {
-  background: linear-gradient(to right, rgba(20, 20, 30, 0.95), rgba(40, 40, 60, 0.95)) !important;
-  backdrop-filter: blur(10px);
+  background-color: #191A2E !important; 
   border-bottom: 2px solid rgba(187, 52, 85, 0.5) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* إصلاح المربع الشفاف وإزالة الخلفيات الداخلية */
+// إزالة المربعات والخلفيات الداخلية في الهيدر
 .masthead__inner-navigation, 
 .masthead__menu, 
 .masthead__menu-item,
 .masthead__menu-item--lg {
-  background-color: transparent !important; // جعل كل الحاويات شفافة
+  background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
 }
 
 .masthead__menu-item a {
   color: #FDD6E8 !important;
-  background-color: transparent !important; // ضمان شفافية خلفية الرابط نفسه
+  background-color: transparent !important;
   font-weight: bold;
-  text-decoration: none;
   
   &:hover {
     color: $primary-color !important;
-    background-color: rgba(255, 255, 255, 0.05) !important; // تأثير خفيف جداً عند التمرير
-    text-shadow: 0 0 10px rgba(187, 52, 85, 0.7);
-    border-radius: 8px;
+    background-color: rgba(187, 52, 85, 0.1) !important;
+    border-radius: 5px;
   }
 }
 
@@ -71,14 +75,11 @@ body {
 .search__toggle {
   background-color: transparent !important;
   color: #FDD6E8 !important;
-  &:hover {
-    color: $primary-color !important;
-  }
 }
 
-// تخصيص بطاقات المقالات (Archive items)
+// تخصيص بطاقات المقالات
 .archive__item {
-  background: linear-gradient(to bottom right, rgba(20,20,30,0.8), rgba(40,40,60,0.8));
+  background: rgba(20, 20, 30, 0.8);
   border-radius: 15px;
   padding: 20px;
   border: 1px solid $border-color;
@@ -87,7 +88,6 @@ body {
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(187, 52, 85, 0.2);
     border-color: $primary-color;
   }
 }
@@ -102,12 +102,6 @@ body {
   background: linear-gradient(135deg, #BB3455, #992f48) !important;
   border: none !important;
   border-radius: 25px !important;
-  transition: all 0.3s ease !important;
-  
-  &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(187, 52, 85, 0.5);
-  }
 }
 
 // السايدبار
@@ -116,12 +110,6 @@ body {
   border-radius: 15px;
   padding: 15px;
   border: 1px solid $border-color;
-  
-  .nav__title {
-    background: $primary-color;
-    color: white;
-    border-radius: 10px 10px 0 0;
-  }
 }
 
 // ضبط الجوال
@@ -129,16 +117,13 @@ body {
   .masthead__menu {
     float: none !important;
     text-align: center;
-    background-color: transparent !important;
   }
-  // إزالة الخلفية التي تظهر أحياناً في قائمة الجوال المنسدلة
   .masthead__menu-item {
-    display: block;
-    width: 100%;
     background-color: transparent !important;
   }
 }
 
+// نيون العناوين
 .page__title, .archive__subtitle {
   color: $primary-color !important;
   text-shadow: 0 0 10px rgba(187, 52, 85, 0.5);
