@@ -27,7 +27,7 @@ author:
 
 # تعليقات Giscus
 comments:
-  provider: "giscus"
+  provider: "custom"
 
 
 # الإعدادات الافتراضية
