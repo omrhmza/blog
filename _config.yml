@@ -56,7 +56,10 @@ defaults:
       read_time: true      
       words_per_minute: 150
       breadcrumbs: true    
-      taxonomy: true       # تفعيل عرض الأوسمة والتصنيفات في نهاية المقال
+      taxonomy: true   
+      categories: true # تأكد من تفعيلها هنا
+      tags: true       # تأكد من تفعيلها هنا
+     # تفعيل عرض الأوسمة والتصنيفات في نهاية المقال
       toc: false           
       entries_layout: grid 
 
