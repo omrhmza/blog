@@ -1,99 +1,66 @@
 ---
-# Minimal Mistakes Custom - Final Integrated Version
+# Minimal Mistakes RTL - Final Fixed Version
 ---
 
-@import "minimal-mistakes";
+/* استدعاء ملفات القالب الأساسية - تأكد من المسار */
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; 
+@import "minimal-mistakes"; 
 
-/* 1. استيراد الخط والأساسيات */
+/* استيراد خط تجوال */
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
 
-$brand-red: #cc0000; // اللون الأحمر الموحد للتصميم
+$brand-red: #cc0000;
 
+/* --- الإعدادات الأساسية --- */
 html {
-  direction: rtl;
+  direction: rtl !important;
 }
 
 body {
   font-family: "Tajawal", sans-serif !important;
-  text-align: right;
 }
 
-/* 2. الرأس (Masthead) - إزالة الخلفية والظلال الزائدة */
+/* --- الرأس (Header) --- */
 .masthead {
   background-color: transparent !important;
-  border-bottom: 1px solid #f2f2f2;
   box-shadow: none !important;
+  border-bottom: 1px solid #eee;
 }
 
-.masthead__menu-item a {
-  font-family: "Tajawal", sans-serif;
-}
-
-/* 3. بطاقة الكاتب (Author Profile) - المورغان (Offset) */
+/* --- بطاقة الكاتب (Morgan Style) --- */
 .author__avatar {
-  display: block;
-  margin-top: -60px; // إزاحة للأعلى لتركب على صورة الغلاف
+  margin-top: -60px; /* الإزاحة للأعلى */
   border: 4px solid #fff;
   border-radius: 50%;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.author__content .author__name {
-  font-family: "Tajawal", sans-serif;
-}
-
-/* 4. الفواصل (Horizontal Rules) - طراز فانيلا بسيط */
-hr {
-  border: 0;
-  border-top: 1px solid #eeeeee;
-  margin: 2em 0;
-}
-
-/* 5. الأوسمة (Tags) - خلفية حمراء نص أبيض */
+/* --- الأوسمة وزر فولو (الأحمر) --- */
 .page__taxonomy-item {
   background-color: $brand-red !important;
   color: #fff !important;
   border: none !important;
-  padding: 0.3em 0.8em;
   border-radius: 4px;
-  text-decoration: none !important;
-  font-size: 0.8em;
-  
-  &:hover {
-    background-color: darken($brand-red, 10%) !important;
-    color: #fff !important;
-  }
 }
 
-/* 6. زر فولو (Follow Button) - أحمر بنص أبيض */
 .btn--light-outline {
   background-color: $brand-red !important;
   color: #fff !important;
   border: none !important;
   font-weight: bold;
-  padding: 0.8em 1.5em;
-
-  &:hover {
-    background-color: darken($brand-red, 10%) !important;
-    color: #fff !important;
-  }
 }
 
-/* 7. الفوتر (Footer) - نظيف ومتناسق مع الـ RTL */
+/* --- الفواصل والفوتر --- */
+hr {
+  border-top: 1px solid #eee !important;
+}
+
 .page__footer {
-  font-family: "Tajawal", sans-serif;
-  border-top: 1px solid #eee;
-  padding-top: 2em;
-  margin-top: 3em;
-  text-align: center; // أو right حسب رغبتك
+  border-top: 1px solid #eee !important;
+  color: #666;
 }
 
-.page__footer-follow .social-icons .fas, 
-.page__footer-follow .social-icons .fab {
-  color: $brand-red; // أيقونات التواصل الاجتماعي بالأحمر
-}
-
-/* 8. ضبط هيكل الـ RTL للقالب (Sidebar & Page) */
+/* --- ضبط الـ RTL للهيكل --- */
 .sidebar {
   float: right !important;
   margin-right: 0 !important;
@@ -104,16 +71,10 @@ hr {
   float: left !important;
   padding-right: 0 !important;
   padding-left: 2em !important;
+  text-align: right;
 }
 
-/* أيقونات المشاركة أسفل المقال */
-.page__share {
-  border-top: 1px solid #eee;
-  margin-top: 2em;
-}
-
-/* العناوين */
-h1, h2, h3, h4, h5, h6, .archive__item-title {
-  font-family: "Tajawal", sans-serif !important;
-  font-weight: bold;
+/* قلب العناوين */
+h1, h2, h3, h4, h5, h6 {
+  text-align: right !important;
 }
