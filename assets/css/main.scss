@@ -134,58 +134,22 @@ body {
   display: inline-block;
   }
   
-/* --- التعديل النهائي لتوزيع عناصر الهيدر (استبدال السابق) --- */
+/* جعل روابط المنيو شفافة تماماً مع الحفاظ على مكانها */
+.masthead__menu .visible-links .masthead__menu-item {
+  opacity: 0 !important; /* شفافة تماماً */
+  visibility: visible !important; /* تظل موجودة في مكانها */
+  transition: opacity 0.4s ease-in-out; /* حركة ناعمة عند الظهور */
 
-// 1. حاوية الهيدر الرئيسية - توزيع العناصر على الأطراف
-.masthead__inner-navigation {
-  display: flex !important;
-  flex-direction: row !important; 
-  justify-content: space-between !important; // يدفع الاسم لجهة والأزرار للجهة الأخرى
-  align-items: center !important;
-  width: 100% !important;
+  &:hover {
+    opacity: 1 !important; /* تظهر فقط عند مرور الفأرة */
+    color: #BB3455 !important; /* لون النيون الخاص بك */
+  }
 }
 
-// 2. إخفاء الروابط المباشرة (لتظهر فقط في القائمة المنسدلة)
-.masthead__menu .visible-links {
-  display: none !important;
-}
-
-// 3. تجميع أزرار (البحث والمنيو) في حاوية واحدة بجهة اليسار
-.masthead__menu {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 15px !important; // مسافة بين البحث والمنيو
-  float: none !important;
-  margin-right: auto !important; // ضمان دفعها لليسار في RTL
-}
-
-// 4. إجبار زر القائمة (الهامبرغر) على الظهور دائماً
+/* التأكد من بقاء الاسم والبحث والمنيو المنسدل واضحين */
+.masthead__menu-item--lg, 
+.search__toggle, 
 .masthead__menu-toggle {
-  display: inline-block !important;
+  opacity: 1 !important;
   visibility: visible !important;
-  background-color: transparent !important;
-  border: none !important;
-  color: #FDD6E8 !important;
-  order: 2; // يظهر بعد زر البحث
-}
-
-// 5. زر البحث
-.search__toggle {
-  display: inline-block !important;
-  visibility: visible !important;
-  color: #FDD6E8 !important;
-  order: 1; // يظهر قبل زر المنيو
-}
-
-// 6. الاسم والنبذة في جهة اليمين
-.masthead__menu-item--lg {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  order: 0;
-}
-
-.masthead__menu-item--lg a {
-  color: #FDD6E8 !important;
-  text-decoration: none !important;
 }
