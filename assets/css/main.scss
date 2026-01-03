@@ -8,7 +8,7 @@
 // 2. المتغيرات الأساسية للثيم
 $background-color: #1a1a2e;
 $text-color: #e6f7ff;
-$primary-color: rgba(124, 32, 55, 1);
+$primary-color: rgba(160, 42, 71, 1);
 $border-color: rgba(187, 52, 85, 0.3);
 $sans-serif: "Tajawal", -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", sans-serif;
 
@@ -224,3 +224,16 @@ hr {
   font-size: 0.9em;
   margin-bottom: 10px;
 }
+// إضافة ظل وهج أبيض خفيف للنصوص التي تستخدم اللون الأحمر القاني
+.page__title, 
+.archive__subtitle, 
+.archive__item-title a, 
+.btn, 
+.page__taxonomy-item, 
+.btn-label {
+    // الظل الأول (وهج أحمر خفيف) والظل الثاني (وهج أبيض ناعم جداً)
+    text-shadow: 0 0 8px rgba(187, 52, 85, 0.4), 
+                 0 0 2px rgba(255, 255, 255, 0.3) !important;
+}
+
+// استهداف خاص للعناوين الكبيرة لزيادة الوضوح
