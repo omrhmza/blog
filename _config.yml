@@ -5,7 +5,7 @@ remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "dark" # الستايل الداكن الذي اخترته
 title: "عمر حمزة"
 subtitle: "الشاعر الجديد"
-locale: "ar-SA" # تحديد المنطقة بدقة يساعد في تحسين الخطوط والتاريخ
+locale: "ar" # تحديد المنطقة بدقة يساعد في تحسين الخطوط والتاريخ
 
 # إعدادات البحث
 search: true
