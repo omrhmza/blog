@@ -155,26 +155,36 @@ body {
 }
 
 // 1. تخصيص الفاصل الأفقي (Horizontal Rule ---)
+// 1. تخصيص الفاصل الأفقي (Force Override)
 hr {
-  border: 0;
-  height: 2px; // سمك الخط
-  background-image: linear-gradient(
-    to right, 
-    transparent, 
-    $primary-color, 
-    transparent
-  );
-  margin: 2em 0;
-  opacity: 0.8;
+  display: block;
+  unicode-bidi: isolate;
+  margin-top: 2em !important;
+  margin-bottom: 2em !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  overflow: hidden;
+  border: 0 !important; // إلغاء الحدود الأصلية تماماً
+  height: 2px !important; // السمك الذي طلبته
+  
+  // التدرج: شفاف -> أحمر قاني -> شفاف
+  background: linear-gradient(
+    to left, 
+    rgba(187, 52, 85, 0) 0%, 
+    rgba(187, 52, 85, 1) 50%, 
+    rgba(187, 52, 85, 0) 100%
+  ) !important;
+
+  opacity: 1 !important; // تأكيد الظهور
 }
 
 // 2. تخصيص الأزرار العامة (لتتوافق مع طلب الحواف الدائرية)
 .btn {
   background-color: $primary-color !important;
   color: #fff !important; // نص أبيض
-  border-radius: 50px !important; // حواف دائرية كاملة
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  padding: 0.6em 1.5em !important;
+  border-radius: 15px !important; // حواف دائرية كاملة
+  border: 3px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 6px 12px !important;
   font-family: $sans-serif;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(187, 52, 85, 0.3);
@@ -191,7 +201,7 @@ hr {
 .page__taxonomy-item {
   background-color: $primary-color !important;
   color: #fff !important;
-  border-radius: 50px !important; // جعلها دائرية مثل الأزرار
+  border-radius: 15px !important; // جعلها دائرية مثل الأزرار
   padding: 5px 15px !important;
   margin-right: 5px;
   margin-bottom: 8px;
