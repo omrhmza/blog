@@ -134,17 +134,9 @@ body {
   display: inline-block;
   }
   
-/* جعل روابط المنيو شفافة تماماً مع الحفاظ على مكانها */
-.masthead__menu .visible-links .masthead__menu-item {
-  opacity: 0 !important; /* شفافة تماماً */
-  visibility: visible !important; /* تظل موجودة في مكانها */
-  transition: opacity 0.4s ease-in-out; /* حركة ناعمة عند الظهور */
 
-  &:hover {
-    opacity: 1 !important; /* تظهر فقط عند مرور الفأرة */
-    color: #BB3455 !important; /* لون النيون الخاص بك */
-  }
-}
+
+
 
 /* التأكد من بقاء الاسم والبحث والمنيو المنسدل واضحين */
 .masthead__menu-item--lg, 
