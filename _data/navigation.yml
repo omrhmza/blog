@@ -1,38 +1,11 @@
-# القائمة العربية
-main_ar:
+main:
   - title: "الرئيسية"
     url: /
   - title: "التصنيفات"
     url: /categories/
+  - title: "الوسوم"
+    url: /tags/
   - title: "الأرشيف"
     url: /year-archive/
-  - title: "English"
-    url: /en/
-  - title: "Bahasa"
-    url: /id/
-
-# القائمة الإنجليزية
-main_en:
-  - title: "Home"
-    url: /en/
-  - title: "Categories"
-    url: /en/categories/
-  - title: "Archive"
-    url: /en/year-archive/
-  - title: "العربية"
-    url: /
-  - title: "Bahasa"
-    url: /id/
-
-# القائمة الإندونيسية
-main_id:
-  - title: "Beranda"
-    url: /id/
-  - title: "Kategori"
-    url: /id/categories/
-  - title: "Arsip"
-    url: /id/year-archive/
-  - title: "العربية"
-    url: /
-  - title: "English"
-    url: /en/
+  - title: "عن المدونة"
+    url: /about/
