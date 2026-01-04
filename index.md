@@ -3,13 +3,11 @@ layout: home
 author_profile: true
 ---
 
-
 <div class="home-actions-grid">
   
-  {% assign categories_to_show = "قصائد,مقالات,خواطر,أرشيف" | split: "," %}
+  {% assign categories_to_show = "ديواني,كتاباتي,نقد و ترشيح" | split: "," %}
   
   {% for cat_name in categories_to_show %}
-    {% comment %} حساب عدد المقالات آلياً لكل قسم {% endcomment %}
     {% assign cat_count = 0 %}
     {% for category in site.categories %}
       {% if category[0] == cat_name %}
@@ -25,10 +23,16 @@ author_profile: true
     </a>
   {% endfor %}
 
+  <a href="/categories/" class="btn">
+    <div class="btn-content">
+      <span class="btn-label">كل التصنيفات</span>
+      <span class="btn-badge">→</span>
+    </div>
+  </a>
+
 </div>
 
 <style>
-  /* تنظيم الشبكة لضمان التناسق في صف واحد (أو زرين في الموبايل) */
   .home-actions-grid {
     display: flex;
     flex-wrap: wrap;
@@ -37,36 +41,30 @@ author_profile: true
     justify-content: center;
   }
 
-  /* جعل الأزرار تأخذ ستايل ملف main الخاص بك تلقائياً */
   .home-actions-grid .btn {
-    flex: 1 1 calc(25% - 10px); /* 4 أزرار في الصف على الكمبيوتر */
+    flex: 1 1 calc(25% - 10px); 
     min-width: 130px;
-    margin: 0 !important; /* لضمان عدم تداخل هوامش القالب مع ستايلك */
+    margin: 0 !important; 
     padding: 12px 5px !important;
     text-align: center;
     text-decoration: none;
   }
 
-  /* تنسيق المحتوى الداخلي للزر */
   .btn-content {
     display: flex;
-    flex-direction: column; /* النص فوق الرقم لجمالية الموبايل */
+    flex-direction: column; 
     align-items: center;
     gap: 4px;
   }
 
-  .btn-label {
-    font-weight: bold;
-    /* سيأخذ الخط واللون من ستايل الـ btn في ملف الماين */
-  }
+  .btn-label { font-weight: bold; }
 
   .btn-badge {
     font-size: 0.75em;
-    opacity: 0.6; /* شفافية خفيفة للرقم ليكون ثانوياً مقارنة بالنص */
-    font-family: monospace; /* لمسة تقنية بسيطة للأرقام */
+    opacity: 0.6; 
+    font-family: monospace; 
   }
 
-  /* التجاوب مع الهاتف: زرين في كل صف */
   @media (max-width: 600px) {
     .home-actions-grid .btn {
       flex: 1 1 calc(50% - 10px);
@@ -74,10 +72,8 @@ author_profile: true
     }
   }
 
-  /* تأثير الضغط لتعزيز شعور "تطبيق الهاتف" */
   .home-actions-grid .btn:active {
     transform: translateY(2px);
     transition: 0.1s;
   }
 </style>
-
