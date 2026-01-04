@@ -1,7 +1,11 @@
 ---
 layout: home
+lang: ar
 author_profile: true
+sidebar:
+  nav: "main_ar"
 ---
+
 
 <div class="home-actions-grid">
   
