@@ -1,5 +1,10 @@
 # 1. تعريف النصوص العربية
 ar: &ar
+  # بيانات المؤلف (Author Data)
+  author_name: "عمر حمزة"
+  author_bio: "طالب في قسم اللغة الإنجليزية، شاعر شغوف بالأدب العربي الفصيح والقصيدة العمودية، ومهتم بالترجمة الأدبية وحوار الثقافات."
+  author_location: "حمص، سوريا"
+  # نصوص الواجهة
   page: "صفحة"
   back_to_top: "للأعلى"
   more_label: "المزيد"
@@ -26,6 +31,11 @@ ar: &ar
 
 # 2. تعريف النصوص الإنجليزية
 en: &en
+  # Author Data
+  author_name: "Omar Hamza"
+  author_bio: "English Department student, a poet passionate about classical Arabic literature and 'Amudi' poetry, with a keen interest in literary translation and cross-cultural dialogue."
+  author_location: "Homs, Syria"
+  # UI Texts
   page: "Page"
   back_to_top: "Back to top"
   more_label: "More"
@@ -52,6 +62,11 @@ en: &en
 
 # 3. تعريف النصوص الإندونيسية (Bahasa Indonesia)
 id: &id
+  # Author Data
+  author_name: "Omar Hamza"
+  author_bio: "Mahasiswa Jurusan Bahasa Inggris, seorang penyair yang mendalami sastra Arab klasik dan puisi 'Amudi', serta memiliki minat besar dalam penerjemahan sastra dan dialog antarbudaya."
+  author_location: "Homs, Suriah"
+  # UI Texts
   page: "Halaman"
   back_to_top: "Kembali ke atas"
   more_label: "Selengkapnya"
