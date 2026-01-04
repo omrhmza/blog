@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>المحرر الشعري الاحترافي لـ Jekyll</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <style>
+        :root { --accent: #d4af37; --bg-sidebar: #1a1b1e; --bg-input: #25262b; }
+        body { display: flex; height: 100vh; margin: 0; font-family: 'Amiri', serif; background: #f8f9fa; color: #333; }
+        
+        /* لوحة التحكم الجانبية */
+        .sidebar { width: 400px; background: var(--bg-sidebar); color: #fff; padding: 25px; overflow-y: auto; border-left: 1px solid #333; box-shadow: 4px 0 10px rgba(0,0,0,0.3); }
+        .sidebar h2 { color: var(--accent); font-family: sans-serif; font-size: 1.2rem; margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        
+        .field { margin-bottom: 15px; }
+        label { display: block; font-size: 0.8rem; color: #888; margin-bottom: 5px; font-family: sans-serif; }
+        input, textarea, select { width: 100%; padding: 10px; background: var(--bg-input); border: 1px solid #373a40; color: #fff; border-radius: 4px; box-sizing: border-box; font-family: inherit; }
+        input:focus, textarea:focus { border-color: var(--accent); outline: none; }
+        
+        /* منطقة المعاينة */
+        .preview { flex-grow: 1; padding: 60px; overflow-y: auto; background: white; }
+        .post-container { max-width: 700px; margin: 0 auto; border: 1px solid #eee; padding: 40px; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+
+        /* تنسيق الشعر المطلوب (فردي يمين / زوجي يسار) */
+        .poem-wrapper { display: flex; flex-direction: column; margin: 30px 0; }
+        .line { width: 100%; font-size: 1.4rem; line-height: 2; }
+        .line:nth-child(odd) { text-align: right; } /* الصدر */
+        .line:nth-child(even) { text-align: left; margin-bottom: 20px; } /* العجز */
+
+        /* أزرار الإجراءات */
+        .actions { margin-top: 20px; }
+        .btn { width: 100%; padding: 12px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-family: sans-serif; transition: 0.3s; }
+        .btn-copy { background: var(--accent); color: #000; margin-bottom: 10px; }
+        .btn-copy:hover { opacity: 0.9; }
+        
+        #filename-tag { display: block; background: #000; color: #0f0; padding: 8px; font-family: monospace; font-size: 0.75rem; margin-top: 10px; border-radius: 3px; }
+        #md-code { background: #000; color: #999; padding: 15px; font-size: 0.7rem; border-radius: 5px; white-space: pre-wrap; display: none; }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>إعدادات المنشور الشعري</h2>
+    
+    <div class="field">
+        <label>عنوان القصيدة (Title)</label>
+        <input type="text" id="title" oninput="update()" placeholder="مثال: في رحاب الليل">
+    </div>
+
+    <div class="field">
+        <label>تاريخ النشر (Date)</label>
+        <input type="date" id="date" oninput="update()">
+    </div>
+
+    <div class="field">
+        <label>رابط الصورة (Image URL)</label>
+        <input type="text" id="image" oninput="update()" placeholder="/assets/img/post-1.jpg">
+    </div>
+
+    <div class="field">
+        <label>الوسوم (Tags) - افصل بفاصلة</label>
+        <input type="text" id="tags" oninput="update()" placeholder="شعر, وجدانيات, فصحى">
+    </div>
+
+    <div class="field">
+        <label>نص المقدمة (قبل القصيدة)</label>
+        <textarea id="intro" rows="3" oninput="update()"></textarea>
+    </div>
+
+    <div class="field">
+        <label>أبيات القصيدة (كل شطر في سطر منفصل)</label>
+        <textarea id="poemLines" rows="8" oninput="update()" placeholder="الصدر الأول (انتر)&#10;العجز الأول (انتر)..."></textarea>
+    </div>
+
+    <div class="field">
+        <label>نص الخاتمة (بعد القصيدة)</label>
+        <textarea id="outro" rows="3" oninput="update()"></textarea>
+    </div>
+
+    <div class="actions">
+        <span id="filename-tag">اسم الملف: YYYY-MM-DD-title.md</span>
+        <button class="btn btn-copy" onclick="copyMd()">نسخ ملف Markdown</button>
+        <pre id="md-code"></pre>
+    </div>
+</div>
+
+<div class="preview">
+    <div class="post-container">
+        <h1 id="pv-title" style="text-align: center; font-size: 2.2rem; color: #222;"></h1>
+        <div id="pv-intro" style="margin: 20px 0; text-align: justify; color: #555;"></div>
+        <div id="pv-poem" class="poem-wrapper"></div>
+        <div id="pv-outro" style="margin: 20px 0; padding-top: 20px; border-top: 1px solid #eee; font-style: italic; color: #666;"></div>
+    </div>
+</div>
+
+<script>
+    // تعيين تاريخ اليوم تلقائياً
+    document.getElementById('date').valueAsDate = new Date();
+
+    function update() {
+        const title = document.getElementById('title').value || "عنوان القصيدة";
+        const date = document.getElementById('date').value;
+        const image = document.getElementById('image').value;
+        const tags = document.getElementById('tags').value;
+        const intro = document.getElementById('intro').value;
+        const outro = document.getElementById('outro').value;
+        const lines = document.getElementById('poemLines').value.split('\n').filter(l => l.trim() !== "");
+
+        // تحديث المعاينة الحية
+        document.getElementById('pv-title').innerText = title;
+        document.getElementById('pv-intro').innerText = intro;
+        document.getElementById('pv-outro').innerText = outro;
+        
+        let poemContent = "";
+        lines.forEach(l => { poemContent += `<div class="line">${l}</div>`; });
+        document.getElementById('pv-poem').innerHTML = poemContent;
+
+        // توليد اسم الملف لجانكل
+        const slug = title.replace(/\s+/g, '-').toLowerCase();
+        document.getElementById('filename-tag').innerText = `اسم الملف: ${date}-${slug}.md`;
+
+        // بناء كود الـ Markdown
+        const md = `---
+layout: post
+title: "${title}"
+date: ${date}
+image: "${image}"
+tags: [${tags}]
+---
+
+${intro}
+
+<div class="poem-wrapper">
+${lines.map(l => `  <div class="line">${l}</div>`).join('\n')}
+</div>
+
+${outro ? `\n---\n\n${outro}` : ""}
+
+<style>
+  .poem-wrapper { display: flex; flex-direction: column; max-width: 600px; margin: 30px auto; }
+  .line { width: 100%; font-family: "Amiri", serif; font-size: 1.3rem; }
+  .line:nth-child(odd) { text-align: right; }
+  .line:nth-child(even) { text-align: left; margin-bottom: 20px; }
+  @media (max-width: 600px) { .line { text-align: center !important; } }
+</style>`;
+
+        document.getElementById('md-code').textContent = md;
+        document.getElementById('md-code').style.display = "block";
+    }
+
+    function copyMd() {
+        const code = document.getElementById('md-code').textContent;
+        navigator.clipboard.writeText(code).then(() => alert("تم النسخ! جاهز لللصق في ملف .md الجديد."));
+    }
+
+    // تشغيل أولي
+    update();
+</script>
+
+</body>
+</html>
