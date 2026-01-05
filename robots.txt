@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://omrhmza.github.io/sitemap.xml
