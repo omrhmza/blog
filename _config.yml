@@ -2,10 +2,13 @@
 url: "https://omrhmza.github.io"
 baseurl: "" 
 remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "dark" # الستايل الداكن الذي اخترته
+minimal_mistakes_skin: "dark" # الستايل الداكن
 title: "عمر حمزة"
 subtitle: "الشاعر الجديد"
-locale: "ar" # تحديد المنطقة بدقة يساعد في تحسين الخطوط والتاريخ
+locale: "ar" # تم تحديده للعربية السورية لتحسين الخطوط
+
+# إثبات ملكية جوجل (Google Search Console)
+google_site_verification: "N9JY6LXUKKkpnflfLJnIrEUa3HJ3HdJXAFAdjkLtaUc"
 
 # إعدادات البحث
 search: true
@@ -18,17 +21,19 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-seo-tag # إضافة أساسية لربط الميتا تاج تلقائياً
 
 # إعدادات الترقيم (Pagination) لصفحة المقالات
 paginate: 10
 paginate_path: "/page:num/"
 
-# إعدادات الكاتب (تعديل لربط صورة الكاتب بصفحة عني)
+# إعدادات الكاتب
 author:
   name: "عمر حمزة"
+  avatar: "/assets/images/author.jpg" # تأكد من وجود صورة بهذا المسار أو غيره
   bio: "أنا شاب سوري أدرس اللغة الإنكليزية... مهتم بالأدب بشكل عام... والشعر العربي العمودي بشكل خاص..."
   location: "الجمهورية العربية السورية"
-  home: "/about/" # الضغط على اسمك سيفتح صفحة "عني"
+  home: "/about/"
   links:
     - label: "تويتر"
       icon: "fab fa-fw fa-twitter-square"
@@ -37,7 +42,7 @@ author:
       icon: "fas fa-fw fa-user"
       url: "/about/"
 
-# إعدادات الأرشيف التلقائي (تم إخراجها من قسم defaults لتعمل بشكل صحيح)
+# إعدادات الأرشيف التلقائي
 category_archive:
   type: liquid
   path: /categories/
@@ -45,7 +50,7 @@ tag_archive:
   type: liquid
   path: /tags/
 
-# تعليقات Giscus (أو أي مزود آخر)
+# تعليقات Giscus
 comments:
   provider: "custom"
 
@@ -54,7 +59,6 @@ breadcrumbs: true
 
 # الإعدادات الافتراضية (Defaults)
 defaults:
-  # إعدادات المقالات
   - scope:
       path: ""
       type: posts
@@ -68,11 +72,10 @@ defaults:
       read_time: true      
       words_per_minute: 150
       breadcrumbs: true    
-      toc: true # تفعيل جدول المحتويات تلقائياً للمقالات الطويلة
+      toc: true
       toc_label: "محتويات القصيدة/المقال"
       toc_icon: "align-right"
   
-  # إعدادات الصفحات العادية (مثل عني والأقسام)
   - scope:
       path: ""
       type: pages
