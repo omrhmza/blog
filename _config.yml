@@ -1,6 +1,7 @@
 # إعدادات الموقع الأساسية
 url: "https://omrhmza.github.io"
 baseurl: "" 
+favicon: "/favicon.ico"
 remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "dark" # الستايل الداكن
 title: "عمر حمزة"
