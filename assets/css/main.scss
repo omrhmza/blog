@@ -232,62 +232,41 @@ hr {
 // استهداف خاص للعناوين الكبيرة لزيادة الوضوح
 /* تنسيق القصيدة ا
 
-/* تنسيق القصيدة الدائم - صدر يمين وعجز يسار مع مساواة الأطوال */
-.post-content .poem-box ul, 
-.entry-content .poem-box ul {
+/* تنسيق القصيدة - وسط ومساواة الأشطر */
+.poem-content ul {
     list-style: none !important;
     padding: 0 !important;
-    margin: 40px auto !important;
-    display: block !important; /* لتمكين الطفو أو التوزيع */
-    width: 100% !important;
-    max-width: 800px !important; /* العرض الكلي للقصيدة في الصفحة */
-    direction: rtl !important;
+    margin: 30px auto !important;
+    max-width: 800px; /* يمكنك زيادة العرض أو إنقاصه حسب الرغبة */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* توسيط الكتلة كاملة */
 }
 
-.post-content .poem-box ul li, 
-.entry-content .poem-box ul li {
+.poem-content ul li {
     list-style-type: none !important;
     background: none !important;
-    width: 45% !important; /* جعل كل شطر يأخذ أقل من نصف الصفحة بقليل */
-    display: block !important;
-    text-align: justify !important;
-    text-align-last: center !important;
-    line-height: 2.2 !important;
-    box-sizing: border-box !important;
-    font-size: 1.15rem;
+    width: 300px; /* العرض الثابت الذي سيوحد أطوال الأشطر */
+    text-align: justify; /* مساواة طول النص */
+    text-align-last: center; /* توسيط الكلمات المتبقية في السطر */
+    line-height: 2;
+    font-size: 1.2rem; /* اختياري: لتكبير الخط قليلاً */
 }
 
-/* الشطر الفردي (الصدر) - يمين دائماً */
-.post-content .poem-box ul li:nth-child(odd),
-.entry-content .poem-box ul li:nth-child(odd) {
-    float: right !important; /* إجبار اليمين */
-    clear: both !important;  /* لبدء سطر جديد للبيت */
-    padding-left: 20px !important; /* البادينج القديم */
-    margin-bottom: 5px !important;
+/* الشطر الفردي (الصدر) */
+.poem-content ul li:nth-child(odd) {
+    margin-bottom: 5px; /* مسافة بسيطة بين الصدر والعجز */
 }
 
-/* الشطر الزوجي (العجز) - يسار دائماً */
-.post-content .poem-box ul li:nth-child(even),
-.entry-content .poem-box ul li:nth-child(even) {
-    float: left !important; /* إجبار اليسار */
-    padding-right: 20px !important; /* البادينج القديم */
-    margin-bottom: 30px !important; /* المورجن القديم (مسافة بين البيت والبيت) */
+/* الشطر الزوجي (العجز) */
+.poem-content ul li:nth-child(even) {
+    margin-bottom: 25px !important; /* الهامش الأسفل الذي أعجبك بين الأبيات */
+    /* إذا أردت إزاحة بسيطة للعجز عن الصدر يمكنك إضافة margin-right هنا */
 }
 
-/* تنظيف الطفو لضمان عدم تداخل النص الذي يلي القصيدة */
-.poem-box ul::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* التنسيق للهواتف */
+/* للهواتف */
 @media (max-width: 600px) {
-    .poem-box ul li {
-        width: 100% !important;
-        float: none !important;
-        text-align: center !important;
-        padding: 0 !important;
-        margin-bottom: 10px !important;
+    .poem-content ul li {
+        width: 90%; /* ليناسب شاشة الموبايل */
     }
 }
