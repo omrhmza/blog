@@ -230,4 +230,36 @@ hr {
 }
 
 // استهداف خاص للعناوين الكبيرة لزيادة الوضوح
+/* تنسيق القصائد - صدر وعجز */
+.poem-content ul {
+  list-style: none !important;
+  padding: 0 !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* تقسيم السطر لنصفين متساويين */
+  column-gap: 40px;               /* المسافة بين الصدر والعجز */
+  row-gap: 15px;                 /* المسافة بين البيت والبيت */
+  margin: 20px 0;
+}
+
+.poem-content ul li {
+  margin: 0 !important;
+  line-height: 1.8;
+}
+
+/* الشطر الفردي (الصدر) جهة اليمين */
+.poem-content ul li:nth-child(odd) {
+  text-align: right;
+}
+
+/* الشطر الزوجي (العجز) جهة اليسار */
+.poem-content ul li:nth-child(even) {
+  text-align: left;
+}
+
+/* التنسيق للهواتف: لجعل الشطرين متقاربين أو تحت بعض */
+@media (max-width: 600px) {
+  .poem-content ul {
+    column-gap: 20px;
+  }
+}
   
