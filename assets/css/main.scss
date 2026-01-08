@@ -230,36 +230,50 @@ hr {
 }
 
 // استهداف خاص للعناوين الكبيرة لزيادة الوضوح
-/* تنسيق القصائد - صدر وعجز */
+/* تنسيق القصيدة - صدر وعجز */
 .poem-content ul {
-  list-style: none !important;
+  list-style: none !important; /* إخفاء النقطة نهائياً */
   padding: 0 !important;
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* تقسيم السطر لنصفين متساويين */
-  column-gap: 40px;               /* المسافة بين الصدر والعجز */
-  row-gap: 15px;                 /* المسافة بين البيت والبيت */
-  margin: 20px 0;
+  margin: 20px 0 !important;
+  display: block; /* التغيير لضمان التحكم الكامل */
+  width: 100%;
 }
 
 .poem-content ul li {
-  margin: 0 !important;
-  line-height: 1.8;
+  list-style-type: none !important; /* تأكيد إخفاء النقطة */
+  display: inline-block;
+  width: 45%; /* عرض الشطر الواحد */
+  vertical-align: top;
+  line-height: 2;
+  box-sizing: border-box;
 }
 
-/* الشطر الفردي (الصدر) جهة اليمين */
+/* الشطر الفردي (الصدر) - يمين */
 .poem-content ul li:nth-child(odd) {
   text-align: right;
+  clear: both;
 }
 
-/* الشطر الزوجي (العجز) جهة اليسار */
+/* الشطر الزوجي (العجز) - يسار مع الهوامش المطلوبة */
 .poem-content ul li:nth-child(even) {
   text-align: left;
+  float: left; /* إجبار العجز على أقصى اليسار */
+  margin-right: 15px; /* مورجان يمين */
+  margin-bottom: 15px; /* مورجان أسفل */
 }
 
-/* التنسيق للهواتف: لجعل الشطرين متقاربين أو تحت بعض */
+/* تنظيف الطفو */
+.poem-content ul::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* للهواتف: لجعل الأبيات مريحة للقراءة */
 @media (max-width: 600px) {
-  .poem-content ul {
-    column-gap: 20px;
+  .poem-content ul li {
+    width: 100%;
+    text-align: center !important;
+    margin: 5px 0 !important;
   }
 }
-  
