@@ -230,50 +230,49 @@ hr {
 }
 
 // استهداف خاص للعناوين الكبيرة لزيادة الوضوح
-/* تنسيق القصيدة - صدر وعجز */
+/* تنسيق القصيدة الاحترافي */
+.poem-content {
+    direction: rtl; /* التأكد من أن الاتجاه من اليمين لليسار */
+}
+
 .poem-content ul {
-  list-style: none !important; /* إخفاء النقطة نهائياً */
-  padding: 0 !important;
-  margin: 20px 0 !important;
-  display: block; /* التغيير لضمان التحكم الكامل */
-  width: 100%;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 20px 0 !important;
 }
 
 .poem-content ul li {
-  list-style-type: none !important; /* تأكيد إخفاء النقطة */
-  display: inline-block;
-  width: 45%; /* عرض الشطر الواحد */
-  vertical-align: top;
-  line-height: 2;
-  box-sizing: border-box;
-}
-
-/* الشطر الفردي (الصدر) - يمين */
-.poem-content ul li:nth-child(odd) {
-  text-align: right;
-  clear: both;
-}
-
-/* الشطر الزوجي (العجز) - يسار مع الهوامش المطلوبة */
-.poem-content ul li:nth-child(even) {
-  text-align: left;
-  float: left; /* إجبار العجز على أقصى اليسار */
-  margin-right: 15px; /* مورجان يمين */
-  margin-bottom: 15px; /* مورجان أسفل */
-}
-
-/* تنظيف الطفو */
-.poem-content ul::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* للهواتف: لجعل الأبيات مريحة للقراءة */
-@media (max-width: 600px) {
-  .poem-content ul li {
+    list-style-type: none !important;
+    background: none !important; /* لإزالة أي صور نقاط مخفية */
+    display: flex;
     width: 100%;
-    text-align: center !important;
-    margin: 5px 0 !important;
-  }
+    margin: 0;
+    line-height: 2;
+}
+
+/* الشطر الفردي (الصدر) */
+.poem-content ul li:nth-child(odd) {
+    justify-content: flex-start; /* إجبار النص على اليمين */
+    text-align: right;
+}
+
+/* الشطر الزوجي (العجز) */
+.poem-content ul li:nth-child(even) {
+    justify-content: flex-end; /* إجبار النص على اليسار */
+    text-align: left;
+    margin-right: 15px !important; /* مورجان يمين */
+    margin-bottom: 25px !important; /* مسافة أسفل البيت لتمييزه عن الذي يليه */
+}
+
+/* للهواتف: لجعل الأبيات تظهر تحت بعضها بوضوح */
+@media (max-width: 600px) {
+    .poem-content ul li:nth-child(even) {
+        margin-right: 0 !important;
+        justify-content: center;
+        text-align: center;
+    }
+    .poem-content ul li:nth-child(odd) {
+        justify-content: center;
+        text-align: center;
+    }
 }
