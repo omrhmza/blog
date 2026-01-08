@@ -230,49 +230,44 @@ hr {
 }
 
 // استهداف خاص للعناوين الكبيرة لزيادة الوضوح
-/* تنسيق القصيدة الاحترافي */
-.poem-content {
-    direction: rtl; /* التأكد من أن الاتجاه من اليمين لليسار */
-}
-
+/* تنسيق القصيدة ا
+/* تنسيق القصيدة - وسط مع مساواة وبادينج متبادل */
 .poem-content ul {
     list-style: none !important;
     padding: 0 !important;
-    margin: 20px 0 !important;
+    margin: 30px auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* توسيط القصيدة في الصفحة */
 }
 
 .poem-content ul li {
     list-style-type: none !important;
-    background: none !important; /* لإزالة أي صور نقاط مخفية */
-    display: flex;
-    width: 100%;
-    margin: 0;
-    line-height: 2;
+    background: none !important;
+    width: 350px; /* العرض الثابت لمساواة الأطوال - يمكنك تعديله */
+    text-align: justify;
+    text-align-last: center;
+    line-height: 2.2;
+    box-sizing: border-box; /* لضمان حساب البادينج من ضمن العرض */
 }
 
 /* الشطر الفردي (الصدر) */
 .poem-content ul li:nth-child(odd) {
-    justify-content: flex-start; /* إجبار النص على اليمين */
-    text-align: right;
+    padding-left: 20px; /* بادينج على اليسار */
+    margin-bottom: 5px;
 }
 
 /* الشطر الزوجي (العجز) */
 .poem-content ul li:nth-child(even) {
-    justify-content: flex-end; /* إجبار النص على اليسار */
-    text-align: left;
-    margin-right: 15px !important; /* مورجان يمين */
-    margin-bottom: 25px !important; /* مسافة أسفل البيت لتمييزه عن الذي يليه */
+    padding-right: 20px; /* بادينج على اليمين */
+    margin-bottom: 30px !important; /* مسافة بين البيت والبيت */
 }
 
-/* للهواتف: لجعل الأبيات تظهر تحت بعضها بوضوح */
+/* للهواتف: لضمان عدم خروج النص عن الشاشة */
 @media (max-width: 600px) {
-    .poem-content ul li:nth-child(even) {
-        margin-right: 0 !important;
-        justify-content: center;
-        text-align: center;
-    }
-    .poem-content ul li:nth-child(odd) {
-        justify-content: center;
-        text-align: center;
+    .poem-content ul li {
+        width: 100%;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
     }
 }
