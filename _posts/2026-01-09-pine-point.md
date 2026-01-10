@@ -4,8 +4,9 @@ title: "أرق الصيف في بلدة Pine Point: مراجعة لرواية In
 date: 2026-01-09
 categories: [نقد و ترشيح, رواية مرئية]
 tags: [visual novel, نفسي, قصير, Pine Point, Insomniac]
-teaser: "https://i.supaimg.com/833c19e9-cfb1-4142-b0ab-da068c27ac1a.jpg"
-og_image: "https://i.supaimg.com/833c19e9-cfb1-4142-b0ab-da068c27ac1a.jpg"
+header:
+  teaser: "https://i.supaimg.com/833c19e9-cfb1-4142-b0ab-da068c27ac1a.jpg"
+  og_image: "https://i.supaimg.com/833c19e9-cfb1-4142-b0ab-da068c27ac1a.jpg"
 description: "بين مطعم بيتزا رديء وغابة ينام فيها الأرق.. قراءتي لرحلة 'نيل' وهو يواجه شبح النضج في بلدة باين بوينت."
 ---
 
