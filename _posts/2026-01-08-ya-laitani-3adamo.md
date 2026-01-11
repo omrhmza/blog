@@ -1,8 +1,10 @@
 ---
 layout: single
-title: "ألا يا ليتني عدم"
+title: "قصيدة ألا يا ليتني عدم" 
 date: 2026-01-08
 categories: [ديواني]
+header: 
+  teaser: "/assets/images/talitani3adamu.jpg"
 tags: [البحر البسيط, شعر, وعظ, حزين, تشاؤم, أسى, عمر حمزة]
 ---
 

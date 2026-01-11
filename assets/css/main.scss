@@ -279,7 +279,5 @@ hr {
 
 .archive__item-teaser img {
   border-radius: 25px; /* غير الرقم 15 للتحكم بدرجة الانحناء */
-  border: 4px solid $primary-color;
-  box-shadow: 0 8px 20px rgba(136, 193, 211, 0.4);
-  border-radius: 15px;
+  border: 1px solid $primary-color;
 }

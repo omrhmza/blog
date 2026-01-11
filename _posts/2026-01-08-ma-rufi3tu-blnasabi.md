@@ -1,7 +1,9 @@
 ---
 layout: single
-title: "إني فتىً قط ما رفعت بالنسبِ"
+title: "قصيدة إني فتىً قط ما رفعت بالنسبِ"
 date: 2026-01-08
+header: 
+  teaser: "/assets/images/marufi3t.jpg"
 categories: [ديواني]
 tags: [البحر البسيط, شعر, غزل, فخر, عمر حمزة]
 ---
