@@ -270,3 +270,9 @@ hr {
         width: 90%; /* ليناسب شاشة الموبايل */
     }
 }
+
+/* تحسين شكل الشبكة للعربية */
+.grid__item .archive__item-teaser {
+  max-height: 200px;
+  object-fit: cover; /* لضمان عدم تمطط الصور */
+}
