@@ -86,3 +86,6 @@ defaults:
 
 # إعدادات الروابط الدائمة
 permalink: /:categories/:title/
+
+sitemap:
+  path: /sitemap_index.xml
