@@ -276,3 +276,7 @@ hr {
   max-height: 200px;
   object-fit: cover; /* لضمان عدم تمطط الصور */
 }
+
+.archive__item-teaser img {
+  border-radius: 25px; /* غير الرقم 15 للتحكم بدرجة الانحناء */
+}
