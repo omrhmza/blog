@@ -4,7 +4,7 @@ title: "قصيدة إن مفارقة الخلان كالخللِ "
 date: 2026-01-31
 categories: [ديواني]
 header: 
-  teaser: "/assets/images/talitani3adamu.jpg"
+  teaser: "/assets/images/9llan.jpg"
 tags: [البحر البسيط, شعر, وعظ, حزين, تشاؤم, أسى, عمر حمزة]
 ---
 
